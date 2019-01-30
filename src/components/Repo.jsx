@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import {
     FilteringState,
     IntegratedFiltering,
+    SortingState,
+    IntegratedSorting,
 } from '@devexpress/dx-react-grid';
 import {Grid, Table, TableHeaderRow, TableFilterRow} from '@devexpress/dx-react-grid-material-ui';
 import {fade} from '@material-ui/core/styles/colorManipulator';
@@ -94,12 +96,19 @@ class Repo extends Component {
                     rows={rows}
                     columns={columns}
                 >
-                    <FilteringState defaultFilters={[]}/>
-                    <IntegratedFiltering/>
+
+                   
+                    
+                    <SortingState defaultSorting={[{ columnName:'name', direction:'asc'}]}/>
+                    <IntegratedSorting />
+
+                    <FilteringState defaultFilters={[]} />
+                    <IntegratedFiltering />
+                   
                     <Table
                         tableComponent={TableComponent} rowComponent={TableRow}
                     />
-                    <TableHeaderRow/>
+                    <TableHeaderRow  showSortingControls/>
                     <TableFilterRow/>
                 </Grid>
             </Paper>
